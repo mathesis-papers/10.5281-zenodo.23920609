@@ -1,0 +1,14 @@
+{
+  "schema": "mathesis.materials.v1",
+  "work": "peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf",
+  "version": 2,
+  "repository_url": "https://github.com/mathesis-papers/6aec3858f30f8af15112d310",
+  "site_url": "https://papers.trureturing.org/6aec3858f30f8af15112d310/",
+  "doi": "10.5281/zenodo.23920610",
+  "reading": {
+    "en": "https://papers.trureturing.org/6aec3858f30f8af15112d310/en/",
+    "zh": "https://papers.trureturing.org/6aec3858f30f8af15112d310/zh/"
+  },
+  "slides": [],
+  "visualizations": []
+}

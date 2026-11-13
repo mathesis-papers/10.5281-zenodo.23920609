@@ -1,0 +1,23 @@
+{
+  "id": "peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf",
+  "revision": 2,
+  "problem_ids": [
+    "peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf"
+  ],
+  "topic": "The no-filter-normal-form conjectures following Theorems 1 and 3 of Peled et al., Scientific Reports 11, 2849 (2021), Eqs. (10) and (12).",
+  "title": "Refuting Peled et al.'s Section IV conjectures after Theorems 1 and 3, Eqs. (10) and (12): sharp fourth-order bounds without filter normal form",
+  "creators": [
+    {
+      "name": "Haobo Ma",
+      "affiliation": "ChronoAI Pte Ltd, Singapore"
+    },
+    {
+      "name": "Wenlin Zhang",
+      "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"
+    }
+  ],
+  "abstract": "We refute the conjectures in Section IV immediately after Theorems 1 and 3, Eqs. (10) and (12), of Peled, Te'eni, Carmi and Cohen, Scientific Reports 11, 2849 (2021), that filter normal form can be removed from their correlation-minor bounds. Explicit separable states give robust violations in dimensions 2 by 4 and 2 by D for 5<=D<=8, including positive-definite examples. For every D>=4 and every Schatten parameter, the sharp fourth-order separable bound without filter normal form is 1/(192 sqrt(3)), attained by tetrahedral qubit projectors paired with four orthogonal flags. No common-size pair of regular coherent degree-1 pure designs exists in dimensions 2 and D>=5. We also correct the missing square root in arXiv:2005.12079v2, Appendix D.5, Eq. (D31), using the known separable covariance inequality. The original filter-normal-form theorems retain their scope.",
+  "summary": "Two no-FNF conjectures are refuted by explicit separable states. Written proofs establish the noise intervals, sharp fourth-order qubit-qudit bound, coherent-design obstruction, and corrected singular-value tail bound. The linked Lean declaration proves the negation of the universal operator bound using the fixed rational 2-by-4 state; exact rational finite checks accompany the source.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/0f1f822c673c1903dc6b0a209a23dacebca2aa6c/D5/S3/Quantum/Entanglement/Witness/CorrelationMinorNormFNFRefutation.lean"
+}

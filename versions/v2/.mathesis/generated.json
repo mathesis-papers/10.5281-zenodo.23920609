@@ -1,0 +1,40 @@
+{
+  "generated_paths": [
+    "CHANGELOG.md",
+    "CITATION.cff",
+    "CONTRIBUTING.md",
+    "LICENSES/CC-BY-4.0.txt",
+    "README.md",
+    "formalization/nodes.json",
+    "manuscript/LICENSE.txt",
+    "manuscript/README.md",
+    "manuscript/metadata.json",
+    "manuscript/note.pdf",
+    "manuscript/note.tex",
+    "manuscript/source-manifest.json",
+    "manuscript/verification.json",
+    "manuscript/verify.py",
+    "paper.json",
+    "paper.pdf"
+  ],
+  "generator_version": "0.1.0",
+  "sha256": {
+    "CHANGELOG.md": "821940eee2789725b36ebb6270055fb6d9e3f6d8f9a577a721be78737fcb085b",
+    "CITATION.cff": "1b3677c278a7f4ffb0bbe9b2948dbddd75343dd44e6e6df7864a91f18f097331",
+    "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
+    "LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
+    "README.md": "59fca481e305aa55c98fcadc6b18f91c4b342a7ea532d5ed35a962d55a8c41a4",
+    "formalization/nodes.json": "2d4b104431efaedaba7280defca9671ea7b75e5b6791a27a37c275f078687eac",
+    "manuscript/LICENSE.txt": "782ccc589c002aaee0e57c9129fd17ccd616f14b9474398dbbc8f86d2ec1437e",
+    "manuscript/README.md": "b3007d1d9b0561764bdc64309f7fc7a19bd07b85d8482495906f80f7a6dc5e5d",
+    "manuscript/metadata.json": "7a8de2d02e8035835a351c932fc4708c007004dfa1a48590336617f6c49081b1",
+    "manuscript/note.pdf": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d",
+    "manuscript/note.tex": "9c76188530e821aadd0080f0f976e0e332ff82e3b6e1c062e87643b27c0eafa2",
+    "manuscript/source-manifest.json": "5b7f12bd7c6161a3b2d336f435028d1b3ae5978fbd8207d1415ed49951aff853",
+    "manuscript/verification.json": "532cb325fdb2368101c380a91a695ffec100ccae5e7f8af6161bf0d033eb23a3",
+    "manuscript/verify.py": "5b852c108e087765f5ee4773f2ef8f7c4eb75093b6a2029264852a7cf48ffc2e",
+    "paper.json": "bc3eaa30b2b8d4a793e617943db11a9d882a882c07e19c016c2d2328ae0d98ba",
+    "paper.pdf": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d"
+  },
+  "snapshot_identity": "cf7dddc7adeedae37e3b7aa89874f0211d88d227e9e87e76ca70c780fd1b9b3d"
+}

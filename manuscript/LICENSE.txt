@@ -1,0 +1,10 @@
+Copyright 2026 Haobo Ma and Wenlin Zhang.
+
+This note, its LaTeX source, and the accompanying original verification program
+are licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0).
+
+License text: https://creativecommons.org/licenses/by/4.0/legalcode
+License summary: https://creativecommons.org/licenses/by/4.0/
+
+The cited works retain their respective copyrights and licenses.

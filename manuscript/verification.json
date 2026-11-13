@@ -1,0 +1,48 @@
+{
+  "method": "exact rational matrix arithmetic",
+  "state": "rho_(1/1000), dimensions 2 by 4",
+  "projectors": "three symmetric trace-one idempotents",
+  "density_trace": "1",
+  "correlation_block": "all entries match Equation (3)",
+  "compound_minors_checked": 2240,
+  "compound_nonzero_entries": 4,
+  "compound_nonzero_rows": 1,
+  "single_minor_exceeds_bound": true,
+  "squared_norm_to_squared_bound_ratio": "1.018250683150",
+  "noise_interval_endpoint": "1/200",
+  "endpoint_polynomial_margin": "574/15625",
+  "tetrahedral_fourth_order_ratios": {
+    "D=5,t=0": "1.0299682617",
+    "D=5,t=1/1000": "1.0233945643",
+    "D=6,t=0": "1.0935000000",
+    "D=6,t=1/1000": "1.0862311060",
+    "D=7,t=0": "1.1723632812",
+    "D=7,t=1/1000": "1.1643482944",
+    "D=8,t=0": "1.2594752187",
+    "D=8,t=1/1000": "1.2506859230"
+  },
+  "tetrahedral_uniform_squared_ratio_lower_bound": "4185/4096",
+  "sharp_fourth_order_bound_squared": "1/110592",
+  "sharp_equality_dimensions_checked": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "weighted_gram_diagonal_at_equality": [
+    "1/8",
+    "1/8",
+    "1/8",
+    "1/8"
+  ],
+  "appendix_D31_printed_tail_bound": "3/8",
+  "appendix_D31_actual_tail_squared": "3/8",
+  "appendix_D31_corrected_tail_bound_squared": "3/8",
+  "coherent_qubit_design_cardinality_bound": 4,
+  "coverage": "finite checks for the fixed state and endpoint; the interval follows from the written monotonicity argument"
+}

@@ -1,0 +1,508 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\CM}{\mathcal M}
+\newcommand{\Id}{\mathbb I}
+\title{Refuting Peled et al.'s Section IV conjectures\\
+after Theorems 1 and 3, Eqs.\ (10) and (12):\\
+sharp fourth-order bounds without filter normal form}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\
+\small ChronoAI Pte Ltd, Singapore}
+\date{2 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We refute the conjectures in Section IV immediately after Theorems 1 and 3,
+Eqs.~(10) and (12), of Peled,
+Te'eni, Carmi and Cohen, \emph{Scientific Reports} \textbf{11}, 2849
+(2021), that filter normal form can be removed from their correlation-minor bounds.
+An explicit separable state on $\mathbb C^2\otimes\mathbb C^4$ disproves
+this extension at order $h=3$.
+A single $3\times3$ minor gives a strict violation, even after adding
+up to $1/200$ maximally mixed noise.
+Every positive noise parameter in this interval gives a positive-definite
+counterexample. The filter-normal-form theorems retain their stated scope.
+A tetrahedral construction in dimensions $2\times D$, $5\le D\le8$,
+also refutes both extensions at order four, for every Schatten parameter.
+For every $D\ge4$, the sharp fourth-order separable bound on
+$\mathbb C^2\otimes\mathbb C^D$ is $1/(192\sqrt3)$, attained by the
+noiseless tetrahedral state. We also correct the tail constraint in
+arXiv:2005.12079v2, Appendix D.5, Eq.~(D31).
+\end{abstract}
+
+\section{The question and its normalization}
+Peled et al.~\cite{peled}, Section IV, conjecture immediately after
+Theorem 3, Eq.~(12), that its hypothesis of filter normal form (FNF) can be removed;
+Appendix D.5 of arXiv:2005.12079v2 gives supporting evidence.
+We give a negative answer by explaining the rational witness encoded in
+the \href{https://github.com/the-omega-institute/trureturing/blob/0f1f822c673c1903dc6b0a209a23dacebca2aa6c/D5/S3/Quantum/Entanglement/Witness/CorrelationMinorNormFNFRefutation.lean}{pinned Lean source},
+and extend that witness to an interval of noise parameters by a written proof.
+We also refute the parallel conjecture immediately after Theorem 1, Eq.~(10),
+using four qubit projectors and orthogonal flags in a larger subsystem,
+and prove the sharp fourth-order bound for every $D\ge4$.
+
+For Hilbert--Schmidt orthonormal Hermitian bases $\{A_i\}$ and $\{B_j\}$,
+use the correlation matrix
+\[
+ C_{ij}=\tr\bigl(\rho(A_i\otimes B_j)\bigr),\qquad
+ \tr(A_iA_k)=\delta_{ik},\quad \tr(B_jB_l)=\delta_{jl}.
+\]
+Let $C_h(C)$ be the matrix of increasing-order $h\times h$ minors and
+$\CM_{h,p}(\rho)=\|C_h(C)\|_p$, with Schatten norms, as in
+\cite[Section III, Eqs.~(6)--(8)]{peled}. In particular $\|\cdot\|_\infty$
+is the Euclidean operator norm, not the largest absolute entry.
+Changing the local Hermitian bases multiplies $C$ by real orthogonal
+matrices on the two sides: expand each new basis in the old one and use
+the trace inner product. These transformations induce orthogonal maps
+on the corresponding exterior powers, so the Schatten norms of $C_h(C)$
+are unchanged. It is therefore legitimate to choose a diagonal matrix-unit
+basis on the second subsystem instead of one containing a normalized identity.
+
+Write $D=\max(d_A,d_B)$ and $d=\min(d_A,d_B)$.
+Theorem 3 of \cite{peled} states, for separable FNF states and
+$\sqrt{Dd}\le h\le d^2$, that
+\begin{equation}\label{eq:bound}
+ \CM_{h,\infty}(\rho)\le
+ \frac1{\sqrt{Dd}}
+ \left[\frac{D-1}{D(h-1)}\frac{d-1}{d(h-1)}\right]^{(h-1)/2}.
+\end{equation}
+FNF means that both reduced density matrices are maximally mixed.
+For $d_A=2,d_B=4,h=3$, the parameter conditions read $\sqrt8<3\le4$
+and the proposed upper bound is $3/(64\sqrt2)$.
+The multipartite extension of Lenny et al.~\cite[Theorem 1]{lenny}
+also retains FNF in its operator-norm bound.
+Correlation-matrix separability criteria also appear in
+de Vicente~\cite{devicente}; the issue here is the specific threshold
+\eqref{eq:bound}, not the validity of correlation-based criteria in general.
+Lupo, Aniello and Scardicchio~\cite{lupo} studied the elementary symmetric
+polynomials and gave numerical separable bounds for $2\times2$ and
+$2\times3$ systems. Their Tables 1--2 do not address $D\ge4$.
+The covariance estimate of Zhang et al.~\cite[Theorem 1]{zhang}, also given
+by Gittsovich et al.~\cite[Proposition IV.2]{covariance},
+and the weighted trace-norm approach of Huang et al.~\cite[Theorem 1]{huang}
+provide relevant general bounds. We give the short specialized arguments below.
+
+\section{A rational family of separable counterexamples}
+In the standard qubit basis define
+\[
+ P_0=\begin{pmatrix}1&0\\0&0\end{pmatrix},\quad
+ P_1=\frac15\begin{pmatrix}1&2\\2&4\end{pmatrix},\quad
+ P_2=\frac15\begin{pmatrix}1&-2\\-2&4\end{pmatrix}.
+\]
+Let $E_{jk}=|j\rangle\langle k|$ on $\mathbb C^4$, with indices
+$0,1,2,3$, and set
+\begin{equation}\label{eq:state}
+ \rho_t=\frac{1-t}{3}\sum_{j=0}^2P_j\otimes E_{jj}
+       +\frac{t}{8}\Id_8 .
+\end{equation}
+
+\begin{theorem}\label{thm:main}
+For every $0\le t\le1/200$, the state $\rho_t$ is separable and satisfies
+\[
+ \CM_{3,\infty}(\rho_t)>\frac3{64\sqrt2}.
+\]
+For $t>0$ it is positive definite. None of these states is in FNF.
+\end{theorem}
+
+\begin{proof}
+The three $P_j$ are the projectors onto the unit vectors
+$(1,0)$, $(1,2)/\sqrt5$, and $(1,-2)/\sqrt5$.
+Equation~\eqref{eq:state} is a convex combination of three pure product
+states, with weights $(1-t)/3$, and the product state
+$(\Id_2/2)\otimes(\Id_4/4)$, with weight $t$.
+It is therefore separable, positive semidefinite, and has trace one.
+Moreover $\rho_t\ge(t/8)\Id_8$, which gives positive definiteness when $t>0$.
+
+On the qubit choose $A=(I,Z,X,Y)/\sqrt2$, with the usual Pauli matrices.
+On $\mathbb C^4$ choose first $E_{00},E_{11},E_{22},E_{33}$,
+then $(E_{jk}+E_{kj})/\sqrt2$ and
+$(-iE_{jk}+iE_{kj})/\sqrt2$ for $j<k$.
+These are complete Hermitian orthonormal bases: diagonal matrix units
+are mutually orthogonal; each off-diagonal basis element has squared Hilbert--Schmidt norm
+one; distinct supports are orthogonal; the symmetric and skew members
+on the same support have trace product zero.
+
+Put $a=(1-t)/3$, $r=(4-t)/12$, and $s=t/4$.
+The correlation matrix has the form $C=2^{-1/2}[B\mid0]$, where
+\begin{equation}\label{eq:matrix}
+ B=\begin{pmatrix}
+ r&r&r&s\\
+ a&-3a/5&-3a/5&0\\
+ 0&4a/5&-4a/5&0\\
+ 0&0&0&0
+ \end{pmatrix}.
+\end{equation}
+The expectations of $(I,Z,X,Y)$ in the three projectors are
+\[
+ (1,1,0,0),\qquad (1,-3/5,4/5,0),\qquad (1,-3/5,-4/5,0).
+\]
+The noise contributes $t/4$ to each diagonal
+column of the identity row before multiplication by $2^{-1/2}$.
+All off-diagonal Bob expectations vanish, since $\rho_t$ is block
+diagonal in Bob's basis.
+
+Take rows $I,Z,X$ and columns $E_{00},E_{11},E_{22}$.
+The corresponding determinant is
+\begin{equation}\label{eq:minor}
+ m(t)=\frac1{(\sqrt2)^3}\frac{64ra^2}{25}
+     =\frac1{2\sqrt2}\frac{16(4-t)(1-t)^2}{675}.
+\end{equation}
+To obtain $64ra^2/25$, factor $r,a,a$ from the three rows;
+the remaining determinant is
+$24/25+4/5+4/5=64/25$.
+For any matrix $N$, $|N_{uv}|=|e_u^TN e_v|\le\|N\|_\infty$,
+so $\CM_{3,\infty}(\rho_t)\ge m(t)$.
+The inequality $m(t)>3/(64\sqrt2)$ is equivalent to
+\begin{equation}\label{eq:scalar}
+ 512(4-t)(1-t)^2>2025.
+\end{equation}
+On $0\le t\le1/200$, both positive factors on the left are bounded
+below by their values at $1/200$, and
+\[
+ 512\frac{799}{200}\left(\frac{199}{200}\right)^2-2025
+ =\frac{574}{15625}>0.
+\]
+This proves the strict violation throughout the interval.
+
+Finally, Bob's reduced density matrix is
+$\operatorname{diag}(r,r,r,s)$, with $r-s=(1-t)/3>0$.
+It is not $\Id_4/4$, so $\rho_t$ is not in FNF.
+\end{proof}
+
+\section{The pinned witness and the scope of the conclusion}
+The rational witness in the linked Lean source is $\rho_{1/1000}$:
+its three pure-product weights are $333/1000$ and its noise term is
+$\Id_8/8000$. At this parameter,
+\[
+ r=\frac{1333}{4000},\quad a=\frac{333}{1000},\quad
+ s=\frac1{4000}.
+\]
+For completeness the four possibly nonzero entries of the selected
+compound row, in column order $012,013,023,123$, are
+\begin{equation}\label{eq:four}
+ \frac1{(\sqrt2)^3}
+ \left(\frac{64ra^2}{25},\ \frac{4sa^2}{5},\
+       -\frac{4sa^2}{5},\ \frac{24sa^2}{25}\right).
+\end{equation}
+Every other compound row contains the zero $Y$ row, and any column
+involving one of the last twelve columns of $C$ vanishes.
+Thus $C_3(C)$ has one nonzero row and rank one; its operator norm
+squared is exactly the sum of the four squares in \eqref{eq:four}.
+This also explains why a row-energy estimate, as used in the formal
+source, suffices.
+
+\begin{corollary}
+For $0\le t\le1/200$, all Schatten correlation-minor norms
+$\CM_{3,p}(\rho_t)$, $1\le p\le\infty$, equal $\CM_{3,\infty}(\rho_t)$
+and exceed $3/(64\sqrt2)$. The fourth-order correlation-minor norms vanish.
+\end{corollary}
+\begin{proof}
+A rank-one matrix has exactly one nonzero singular value, so every
+Schatten norm has that value. Equation~\eqref{eq:matrix} has rank at
+most three, so all fourth-order minors vanish.
+\end{proof}
+
+This corollary does not refute the distinct $p=1$ threshold in
+Theorem 1 of \cite{peled}. In dimensions $2\times4$, its third-order
+right-hand side is $1/(16\sqrt2)+1/(48\sqrt6)$, rather than
+$3/(64\sqrt2)$.
+
+\section{The companion conjecture after Theorem 1}
+Let $v_0,v_1,v_2,v_3$ be the four vectors
+\[
+ \frac{(1,1,1)}{\sqrt3},\quad
+ \frac{(1,-1,-1)}{\sqrt3},\quad
+ \frac{(-1,1,-1)}{\sqrt3},\quad
+ \frac{(-1,-1,1)}{\sqrt3}.
+\]
+With $\sigma=(X,Y,Z)$, put $Q_j=(I+v_j\cdot\sigma)/2$.
+Each $Q_j$ is a rank-one density projector: the Pauli anticommutation
+relations give $(v_j\cdot\sigma)^2=I$, and $\tr(v_j\cdot\sigma)=0$.
+For $D\ge4$ define
+\[
+ \omega_{D,t}=\frac{1-t}{4}\sum_{j=0}^3Q_j\otimes E_{jj}
+             +\frac{t}{2D}\Id_{2D}.
+\]
+\begin{theorem}\label{thm:companion}
+For every integer $5\le D\le8$ and $0\le t\le1/1000$, the separable
+state $\omega_{D,t}$ violates the FNF-free extensions of both Theorem 1
+and Theorem 3 of \cite{peled} at $h=4$.
+It is positive definite for $t>0$. The violations hold for every
+$1\le p\le\infty$ at the common fourth-order threshold.
+\end{theorem}
+\begin{proof}
+The displayed expression is a convex mixture of product states, and
+$\omega_{D,t}\ge t\Id_{2D}/(2D)$.
+Its marginals are $\Id_2/2$ and
+$\frac{1-t}{4}\sum_{j=0}^3E_{jj}+\frac{t}{D}\Id_D$;
+the latter is nonuniform because $D>4$ and $t<1$.
+Use $(I,X,Y,Z)/\sqrt2$ and a diagonal/off-diagonal basis on Bob's
+system as before. The tetrahedral vectors satisfy
+\[
+ \sum_{j=0}^3 v_j=0,\qquad
+ \sum_{j=0}^3v_jv_j^{\mathsf T}=\frac43\Id_3.
+\]
+Thus the correlation Gram matrix is diagonal with entries
+\[
+ q_0=\frac{(1-t)^2}{8}+\frac{2t-t^2}{2D},\qquad
+ q_1=q_2=q_3=\frac{(1-t)^2}{24}.
+\]
+For example the identity row has first four entries
+$[(1-t)/4+t/D]/\sqrt2$ and its remaining $D-4$ diagonal entries
+are $t/(D\sqrt2)$, whose squared sum gives $q_0$.
+The Pauli rows have entries $(1-t)v_{j,k}/(4\sqrt2)$,
+which give the other three entries and the zero cross terms.
+There are four positive singular values. Their product is the sole
+nonzero singular value of $C_4(C)$, so for every $p$,
+\[
+ \CM_{4,p}(\omega_{D,t})^2
+ =q_0\left(\frac{(1-t)^2}{24}\right)^3
+ \ge\frac{(1-t)^8}{110592}.
+\]
+At $d=2,h=4$, the square of the right-hand side of \eqref{eq:bound} is
+\[
+ b_D^2=\frac{(D-1)^3}{11664D^4}.
+\]
+It decreases for real $D>4$, since its logarithmic derivative is
+$(4-D)/(D(D-1))<0$. Bernoulli's inequality and $t\le1/1000$ give
+\[
+ \CM_{4,p}(\omega_{D,t})^2
+ \ge\frac{1-8t}{110592}
+ \ge\frac{124}{125\cdot110592}
+ >\frac{64}{11664\cdot625}=b_5^2\ge b_D^2.
+\]
+For the strict step, the ratio of the left constant to $b_5^2$ is
+$4185/4096>1$.
+Theorem 3 applies to these parameters because $2D\le16=h^2$.
+For Theorem 1, $D\le d^3=8$ and $h=4>1$. Its right-hand side
+is $S_4(\alpha,\beta,\beta,\beta)=\alpha\beta^3$, where
+$\alpha=1/\sqrt{2D}$ and $\beta=\sqrt{(D-1)/(18D)}$.
+This is exactly $b_D$. Hence both conjectured extensions fail.
+The fourth-order quantity is independent of $p$, as already shown.
+\end{proof}
+
+\section{Sharp replacement and neighboring consequences}
+
+\begin{theorem}\label{thm:sharp}
+For every separable state on $\mathbb C^2\otimes\mathbb C^D$, $D\ge2$,
+and every $1\le p\le\infty$,
+\[
+ \CM_{4,p}(\rho)\le\frac1{192\sqrt3}.
+\]
+For each $D\ge4$, equality holds at $\omega_{D,0}$, so this is the
+sharp bound in those dimensions without an FNF assumption.
+\end{theorem}
+\begin{proof}
+Use the qubit basis $(I,X,Y,Z)/\sqrt2$ and any complete orthonormal
+Hermitian Bob basis. Write a separable decomposition
+$\rho=\sum_jw_j\alpha_j\otimes\beta_j$, with density matrices
+$\alpha_j,\beta_j$ and nonnegative weights summing to one.
+Let $a_j,b_j$ be their coefficient vectors, so $C=\sum_jw_ja_jb_j^T$.
+The Bloch representation gives $a_j=(1,r_j)/\sqrt2$, $|r_j|\le1$,
+and $\|b_j\|_2^2=\tr(\beta_j^2)\le1$.
+Put $L=\operatorname{diag}(1,\sqrt3,\sqrt3,\sqrt3)$.
+Since the nuclear norm of an outer product is the product of its
+Euclidean norms, the triangle inequality gives
+\[
+ \|LC\|_1\le\sum_jw_j\|La_j\|_2\|b_j\|_2\le\sqrt2.
+\]
+If $\tau_1,\ldots,\tau_4$ are the four singular values of $LC$,
+the arithmetic--geometric mean inequality implies
+$\prod_i\tau_i\le(\sqrt2/4)^4=1/64$.
+Also
+\[
+ \prod_i\tau_i=\sqrt{\det(LCC^TL^T)}
+ =3\sqrt3\,\sqrt{\det(CC^T)}.
+\]
+The fourth compound has one row, so every Schatten norm equals
+$\sqrt{\det(CC^T)}$, including the rank-deficient case where it vanishes.
+This proves the bound. At $t=0$, the Gram entries of $\omega_{D,0}$ are
+$1/8,1/24,1/24,1/24$; their product is $1/110592=(192\sqrt3)^{-2}$.
+\end{proof}
+
+\begin{corollary}\label{cor:design}
+For $D\ge5$, no common-size pair of regular, coherent, degree-1 pure
+designs in dimensions $2$ and $D$ exists, with the terminology of
+\cite[Section IV]{peled}. Nevertheless $\omega_{D,0}$ attains the
+unrestricted fourth-order separable maximum for every $p$.
+\end{corollary}
+\begin{proof}
+Suppose a qubit design has $v$ pure projectors and common distinct-pair
+overlap $\mu$. Coherence and trace give
+$\sum_jP_j=(v/2)I_2$ and $\mu=(v-2)/(2(v-1))$.
+The case $v=1$ cannot be coherent. For $v\ge2$, $0\le\mu<1$, so the
+Hilbert--Schmidt Gram matrix $(1-\mu)I_v+\mu\mathbf1\mathbf1^T$
+has rank $v$. The real space of Hermitian qubit matrices has dimension
+four; hence $v\le4$. On Bob's side coherence requires
+$\sum_jR_j=(v/D)I_D$, whose rank $D$ is at most $v$. Thus $D\le v\le4$.
+The maximality assertion follows from Theorem~\ref{thm:sharp}.
+\end{proof}
+This determines the maximal-order qubit case adjacent to the
+design-maximization hypothesis after Theorem 4: tetrahedral projectors
+and orthogonal flags attain the optimum, although coherent paired designs
+cannot do so for $D\ge5$. The broader hypothesis uses the term
+``quantum designs'' without a precise characterization; it is not refuted
+by the absence of coherent pairs. Other orders and dimensions are not determined here.
+
+\begin{corollary}\label{cor:tail}
+For any separable state on $\mathbb C^{d_A}\otimes\mathbb C^{d_B}$,
+with $d=\min(d_A,d_B)$ and $D=\max(d_A,d_B)$, its correlation singular
+values $s_1\ge\cdots\ge s_{d^2}$ satisfy
+\[
+ \sum_{i=2}^{d^2}s_i
+ \le\sqrt{(1-\tr\rho_A^2)(1-\tr\rho_B^2)}
+ \le\sqrt{\frac{d-1}{d}\frac{D-1}{D}}.
+\]
+Equation (D31) in \cite{peled}, arXiv v2, omits the square root on
+its last expression and is false as written, even in FNF.
+\end{corollary}
+\begin{proof}
+In a separable decomposition use coefficient vectors $a_j,b_j$ as above,
+and their means $a,b$. Then
+$K=C-ab^T=\sum_jw_j(a_j-a)(b_j-b)^T$.
+The nuclear-norm triangle inequality and Cauchy--Schwarz give
+\[
+ \|K\|_1\le
+ \sqrt{\Bigl(\sum_jw_j\|a_j\|^2-\|a\|^2\Bigr)
+             \Bigl(\sum_jw_j\|b_j\|^2-\|b\|^2\Bigr)}
+ \le\sqrt{(1-\tr\rho_A^2)(1-\tr\rho_B^2)}.
+\]
+The rank-one approximation inequality gives
+$\sum_{i=2}^{d^2}s_i(C)\le\|C-ab^T\|_1$.
+For completeness, if $P$ projects orthogonally to the span of $a$,
+singular-value interlacing gives $s_{i+1}(C)\le s_i(PC)$, while
+$PC=PK$ and $\|PK\|_1\le\|K\|_1$.
+If $a=0$, take $P=I$ instead. Finally $\tr\rho_A^2\ge1/d_A$ and
+$\tr\rho_B^2\ge1/d_B$.
+For $\omega_{4,0}$, both marginals are maximally mixed, while its
+tail sum is $3/\sqrt{24}=\sqrt{3/8}>3/8$, the bound printed in (D31).
+The corrected inequality is saturated by this state.
+\end{proof}
+The covariance estimate in this proof is the separable-state inequality
+of \cite[Theorem 1]{zhang} and \cite[Proposition IV.2]{covariance};
+the proof here fixes its normalization.
+
+\begin{corollary}\label{cor:equal}
+For $d_A=d_B=d\ge2$ and $d\le h\le d^2$, the operator bound
+\eqref{eq:bound} holds for every density matrix satisfying the CCNR
+inequality $\sum_i s_i\le1$, without an FNF hypothesis. Thus in this
+range the operator bound cannot detect entanglement beyond CCNR.
+At $h=d^2$ this conclusion holds for every Schatten parameter.
+\end{corollary}
+\begin{proof}
+Choose normalized identities as the first local observables. Then
+$C_{00}=1/d$, so $x=s_1\ge1/d$, as in \cite[Lemma 2.1]{lipoon}.
+AM--GM and CCNR give
+\[
+ \CM_{h,\infty}=\prod_{i=1}^h s_i
+ \le x\left(\frac{1-x}{h-1}\right)^{h-1}
+ \le\frac1d\left(\frac{d-1}{d(h-1)}\right)^{h-1}.
+\]
+For the second inequality, the function
+$x(1-x)^{h-1}$ has derivative $(1-x)^{h-2}(1-hx)\le0$
+on $1/d\le x\le1$, since $h\ge d$. The last expression is exactly
+\eqref{eq:bound} when $D=d$. At $h=d^2$ the compound has a single
+singular value, so all its Schatten norms coincide.
+\end{proof}
+The corresponding equal-dimensional $p=1$ CCNR comparison is already
+proved by Li, Poon and Sze~\cite[Theorem 2.4]{lipoon}.
+
+The neighboring source statements have the following coverage.
+\begin{center}\small
+\begin{tabular}{p{.34\linewidth}p{.57\linewidth}}
+\toprule
+Source item in \cite{peled} & Coverage and scope here\\
+\midrule
+Theorems 1 and 3, Eqs.~(10), (12), with FNF & Not covered as new claims; the original FNF theorems keep their scope.\\
+Conjecture after Theorem 3 & Refuted-and-corrected: Theorem~\ref{thm:main}; sharp fourth-order replacement in Theorem~\ref{thm:sharp}.\\
+Conjecture after Theorem 1 & Refuted-and-corrected: Theorem~\ref{thm:companion} for $5\le D\le8$, $h=4$.\\
+Theorems 2 and 4, coherent designs & Prior proof cited: \cite[Appendices D.3, D.6]{peled}; their FNF hypotheses remain essential.\\
+General-$p$ design hypothesis after Theorem 4 & Proved: sharp maximal-order qubit bound and coherent-pair obstruction (Theorem~\ref{thm:sharp}, Corollary~\ref{cor:design}); broader characterization not covered.\\
+Appendix D.5, displayed Eq.~(D31) & Refuted-and-corrected: Corollary~\ref{cor:tail}; the covariance inequality has a prior proof in \cite{covariance}.\\
+Section IV, equal-dimensional CCNR comparison & Proved for $p=\infty$, $d\le h\le d^2$, and every $p$ at $h=d^2$ (Corollary~\ref{cor:equal}); prior proof cited for $p=1$ \cite[Theorem 2.4]{lipoon}; other cases not covered.\\
+Section V and Theorem 5, entropy and discord & Not covered.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Verification scope and data.}
+In the \href{https://github.com/the-omega-institute/trureturing/blob/0f1f822c673c1903dc6b0a209a23dacebca2aa6c/D5/S3/Quantum/Entanglement/Witness/CorrelationMinorNormFNFRefutation.lean}{linked Lean file},
+the declaration
+\begin{center}\small\ttfamily
+D5.S3.Quantum.Entanglement.Witness.\\
+CorrelationMinorNormFNFRefutation.result
+\end{center}
+proves $\neg\texttt{claim}$: the negation of the universally quantified
+bound without FNF, using the fixed rational witness above.
+The noise interval, the exact rank-one norm formula, the corollary,
+Theorems~\ref{thm:companion} and \ref{thm:sharp}, and
+Corollaries~\ref{cor:design}, \ref{cor:tail} and \ref{cor:equal}
+are established by the written arguments in this note.
+The accompanying \texttt{verify.py} reconstructs the fixed state and its
+correlations with exact rational arithmetic, checks all third-order minors,
+and checks the endpoint arithmetic in \eqref{eq:scalar}.
+It also checks the tetrahedral sign identities and the fourth-order
+inequalities for $D=5,6,7,8$ at $t=0,1/1000$.
+It checks the sharp squared bound, the weighted-Gram equality at zero
+noise for $4\le D\le12$, the dimension obstruction for coherent pairs,
+and the squared tail comparison in Eq.~(D31).
+The \LaTeX{} source and this finite verification program accompany the note.
+
+\begin{thebibliography}{9}
+\bibitem{peled}
+B.~Y. Peled, A. Te'eni, A. Carmi and E. Cohen,
+Correlation minor norms, entanglement detection and discord,
+\emph{Scientific Reports} \textbf{11}, 2849 (2021).
+\href{https://doi.org/10.1038/s41598-021-82303-3}{doi:10.1038/s41598-021-82303-3}.
+Detailed appendices: \href{https://arxiv.org/abs/2005.12079v2}{arXiv:2005.12079v2}.
+\bibitem{lenny}
+R. Lenny, A. Te'eni, B.~Y. Peled, A. Carmi and E. Cohen,
+Multipartite entanglement detection via correlation minor norm,
+\emph{Quantum Information Processing} \textbf{22}, 292 (2023).
+\href{https://doi.org/10.1007/s11128-023-04046-6}{doi:10.1007/s11128-023-04046-6}.
+See also \href{https://arxiv.org/abs/2302.00650}{arXiv:2302.00650}, Theorem 1.
+\bibitem{devicente}
+J.~I. de Vicente,
+Separability criteria based on the Bloch representation of density matrices,
+\emph{Quantum Information and Computation} \textbf{7}, 624--638 (2007).
+\href{https://arxiv.org/abs/quant-ph/0607195}{arXiv:quant-ph/0607195}.
+\bibitem{lupo}
+C. Lupo, P. Aniello and A. Scardicchio,
+Bipartite quantum systems: on the realignment criterion and beyond,
+\emph{Journal of Physics A: Mathematical and Theoretical} \textbf{41},
+415301 (2008).
+\href{https://doi.org/10.1088/1751-8113/41/41/415301}{doi:10.1088/1751-8113/41/41/415301}.
+\bibitem{covariance}
+O. Gittsovich, O. G\"uhne, P. Hyllus and J. Eisert,
+Unifying several separability conditions using the covariance matrix criterion,
+\emph{Physical Review A} \textbf{78}, 052319 (2008).
+\href{https://doi.org/10.1103/PhysRevA.78.052319}{doi:10.1103/PhysRevA.78.052319}.
+\href{https://arxiv.org/abs/0803.0757v3}{arXiv:0803.0757v3}.
+\bibitem{zhang}
+C.-J. Zhang, Y.-S. Zhang, S. Zhang and G.-C. Guo,
+Entanglement detection beyond the computable cross-norm or realignment criterion,
+\emph{Physical Review A} \textbf{77}, 060301(R) (2008).
+\href{https://doi.org/10.1103/PhysRevA.77.060301}{doi:10.1103/PhysRevA.77.060301}.
+\href{https://arxiv.org/abs/0709.3766v6}{arXiv:0709.3766v6}.
+\bibitem{huang}
+X. Huang, T. Zhang and N. Jing,
+A unifying separability criterion based on extended correlation tensor (2024).
+\href{https://arxiv.org/abs/2406.17230}{arXiv:2406.17230}, Theorem 1.
+\bibitem{lipoon}
+C.-K. Li, Y.-T. Poon and N.-S. Sze,
+A note on the realignment criterion,
+\emph{Journal of Physics A: Mathematical and Theoretical} \textbf{44},
+315304 (2011).
+\href{https://doi.org/10.1088/1751-8113/44/31/315304}{doi:10.1088/1751-8113/44/31/315304}.
+\href{https://arxiv.org/abs/1103.2499v2}{arXiv:1103.2499v2}.
+\end{thebibliography}
+\noindent\small Copyright 2026 Haobo Ma and Wenlin Zhang.
+Licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
+\end{document}

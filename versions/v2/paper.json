@@ -1,0 +1,62 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 101335,
+      "matches_public": null,
+      "path": "paper.pdf",
+      "public_sha256": null,
+      "sha256": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d"
+    },
+    "source": {
+      "bytes": 116166,
+      "matches_public": null,
+      "path": "manuscript/",
+      "public_sha256": null,
+      "sha256": "dca4210c50c30bdda34fbbea75eb8f4ce57a955439810f7ad04062eaa794437e"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "We refute the conjectures in Section IV immediately after Theorems 1 and 3, Eqs. (10) and (12), of Peled, Te'eni, Carmi and Cohen, Scientific Reports 11, 2849 (2021), that filter normal form can be removed from their correlation-minor bounds. Explicit separable states give robust violations in dimensions 2 by 4 and 2 by D for 5<=D<=8, including positive-definite examples. For every D>=4 and every Schatten parameter, the sharp fourth-order separable bound without filter normal form is 1/(192 sqrt(3)), attained by tetrahedral qubit projectors paired with four orthogonal flags. No common-size pair of regular coherent degree-1 pure designs exists in dimensions 2 and D>=5. We also correct the missing square root in arXiv:2005.12079v2, Appendix D.5, Eq. (D31), using the known separable covariance inequality. The original filter-normal-form theorems retain their scope.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": "10.5281/zenodo.23920609",
+    "current_version": 2,
+    "doi": "10.5281/zenodo.23920610",
+    "lean_source": {
+      "revision": "0f1f822c673c1903dc6b0a209a23dacebca2aa6c",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/0f1f822c673c1903dc6b0a209a23dacebca2aa6c/D5/S3/Quantum/Entanglement/Witness/CorrelationMinorNormFNFRefutation.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "url": "/api/v1/collected-papers/peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-05T08:03:36.238517675Z",
+    "record": "peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf",
+    "repository_name": "6aec3858f30f8af15112d310",
+    "source": {
+      "url": "/api/v1/collected-papers/peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf/files/source?version=2"
+    },
+    "title": "Refuting Peled et al.'s Section IV conjectures after Theorems 1 and 3, Eqs. (10) and (12): sharp fourth-order bounds without filter normal form",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-05T08:03:36.238517675Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf"
+  }
+}
