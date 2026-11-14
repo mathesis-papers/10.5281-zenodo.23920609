@@ -1,7 +1,7 @@
 {
   "git_blobs": {
     ".github/workflows/pages.yml": "7879724db1358178aad7e9bed326a44be44f5a6a",
-    ".mathesis/generated.json": "df3d24986e7890ed7cfc93580e3f7436608df260",
+    ".mathesis/generated.json": "ae7f983637ab91b46e67315a9984f5a18a360965",
     "CHANGELOG.md": "3e342006587305f8b5e0c539f47ce002b521389b",
     "CITATION.cff": "e10fd18127c84b5a31afc6921409d3bc368ed29a",
     "CONTRIBUTING.md": "ea69168fc2cb506b57b00de1ef588aaf011aa3da",
@@ -16,12 +16,13 @@
     "manuscript/source-manifest.json": "3f6e02ad020dade936266bbbeed3190f4804efec",
     "manuscript/verification.json": "81fc4bc2137de196b441c63c2f768544563e988b",
     "manuscript/verify.py": "7da16f7c66950bac1764b6e4e8eed306b045cab7",
-    "paper.json": "03f6924edfe3cf4f1df19bc93c3293179a7cb0b4",
+    "paper.json": "e47ee6cea666c3cbc8cc51c8f268749c341061dc",
     "paper.pdf": "a0cbf63f05a3b663b473a20512140ad426faea6c",
     "site/en/index.html": "378488f01c15254a0d4e171a5bf56769cb4cb824",
-    "site/index.html": "0bb2aa34214b072da027512cc517e469b5247a7b",
+    "site/index.html": "f15deb7a288d5233342463a5bd77a8309b4ac8be",
     "site/mathesis-materials.json": "8d41ee4e138933665f91361334d83671949517c4",
     "site/zh/index.html": "a75171c3976605c0f18144eb9a88dbbe8ca1e131",
+    "source.archive": "68d5cb5bb8be0dfc5e93b1739159bba1ebd59743",
     "versions/v2/.mathesis/generated.json": "3fc02bfb0dd874889712d7bba2a6aa5a25acd6e6",
     "versions/v2/CHANGELOG.md": "3e342006587305f8b5e0c539f47ce002b521389b",
     "versions/v2/CITATION.cff": "e10fd18127c84b5a31afc6921409d3bc368ed29a",
@@ -38,12 +39,13 @@
     "versions/v2/manuscript/verification.json": "81fc4bc2137de196b441c63c2f768544563e988b",
     "versions/v2/manuscript/verify.py": "7da16f7c66950bac1764b6e4e8eed306b045cab7",
     "versions/v2/paper.json": "2680097df26310ee8b38a5d65c93e9a04cb1e857",
-    "versions/v2/paper.pdf": "a0cbf63f05a3b663b473a20512140ad426faea6c"
+    "versions/v2/paper.pdf": "a0cbf63f05a3b663b473a20512140ad426faea6c",
+    "versions/v2/source.archive": "68d5cb5bb8be0dfc5e93b1739159bba1ebd59743"
   },
   "schema": "mathesis.paper-collection.v1",
   "sha256": {
     ".github/workflows/pages.yml": "f15d983dcb8f324ffdedb50b05f7380e11fda8723d49b5c8f10ef0f414612372",
-    ".mathesis/generated.json": "0fe20cf77e125523a78f76eb3791401415d82c9f613fe6b7c2e7130e5af4957a",
+    ".mathesis/generated.json": "e466102542b8f8c469115ab6ec710062f2b043bc87d74fb8799a133abdc9f79a",
     "CHANGELOG.md": "821940eee2789725b36ebb6270055fb6d9e3f6d8f9a577a721be78737fcb085b",
     "CITATION.cff": "1b3677c278a7f4ffb0bbe9b2948dbddd75343dd44e6e6df7864a91f18f097331",
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
@@ -58,12 +60,13 @@
     "manuscript/source-manifest.json": "5b7f12bd7c6161a3b2d336f435028d1b3ae5978fbd8207d1415ed49951aff853",
     "manuscript/verification.json": "532cb325fdb2368101c380a91a695ffec100ccae5e7f8af6161bf0d033eb23a3",
     "manuscript/verify.py": "5b852c108e087765f5ee4773f2ef8f7c4eb75093b6a2029264852a7cf48ffc2e",
-    "paper.json": "f0c634c7994efae9300d11cbad778f3b07c76e6884ed4f9011037980cbd7bed6",
+    "paper.json": "c04970691a0d7497ea4b8b18c65fd64f845117d06ee699c37b1e5fcb8d6286e4",
     "paper.pdf": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d",
     "site/en/index.html": "e23c99ab82070098527f5857429f3194d2b2765447eb47ff2596903878f93737",
-    "site/index.html": "5bc500f8d421fcec3dd567af526dd613ba1cb2fd90d6fef27e401cf0f1b77452",
+    "site/index.html": "64010a3a7e22603fa7b44fe3f91aad6dcadf09f36a88ee8f29b86a735a25eb5a",
     "site/mathesis-materials.json": "6524342bf6173c37ee766902864263b379da33a80617f68b3c3eb5d32fbe4f4d",
     "site/zh/index.html": "5e69a1fb93e3e0a49441b2cb0bbf05428e82e2af7f30a6ba780ac162fc9d2fd3",
+    "source.archive": "dca4210c50c30bdda34fbbea75eb8f4ce57a955439810f7ad04062eaa794437e",
     "versions/v2/.mathesis/generated.json": "7220b10b1ce2bac6cd47534134007b79292a31ec3efc2f56553fbd282a2f846e",
     "versions/v2/CHANGELOG.md": "821940eee2789725b36ebb6270055fb6d9e3f6d8f9a577a721be78737fcb085b",
     "versions/v2/CITATION.cff": "1b3677c278a7f4ffb0bbe9b2948dbddd75343dd44e6e6df7864a91f18f097331",
@@ -80,7 +83,8 @@
     "versions/v2/manuscript/verification.json": "532cb325fdb2368101c380a91a695ffec100ccae5e7f8af6161bf0d033eb23a3",
     "versions/v2/manuscript/verify.py": "5b852c108e087765f5ee4773f2ef8f7c4eb75093b6a2029264852a7cf48ffc2e",
     "versions/v2/paper.json": "bc3eaa30b2b8d4a793e617943db11a9d882a882c07e19c016c2d2328ae0d98ba",
-    "versions/v2/paper.pdf": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d"
+    "versions/v2/paper.pdf": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d",
+    "versions/v2/source.archive": "dca4210c50c30bdda34fbbea75eb8f4ce57a955439810f7ad04062eaa794437e"
   },
   "version": 2,
   "work": "peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf"
