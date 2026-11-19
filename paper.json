@@ -2,16 +2,16 @@
   "files": {
     "pdf": {
       "bytes": 101335,
-      "matches_public": null,
+      "matches_public": true,
       "path": "paper.pdf",
-      "public_sha256": null,
+      "public_sha256": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d",
       "sha256": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d"
     },
     "source": {
       "bytes": 116166,
-      "matches_public": null,
+      "matches_public": true,
       "path": "source.archive",
-      "public_sha256": null,
+      "public_sha256": "dca4210c50c30bdda34fbbea75eb8f4ce57a955439810f7ad04062eaa794437e",
       "sha256": "dca4210c50c30bdda34fbbea75eb8f4ce57a955439810f7ad04062eaa794437e"
     }
   },
@@ -38,6 +38,8 @@
     "license": "CC-BY-4.0",
     "msc": [],
     "pdf": {
+      "bytes": 101335,
+      "sha256": "9f448e5884788af0eb056bb2d3d6a8cdc6047a60f31159c23530f1abe567e25d",
       "url": "/api/v1/collected-papers/peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf/files/pdf?version=2"
     },
     "previous_version": null,
@@ -46,6 +48,8 @@
     "record": "peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf",
     "repository_name": "10.5281-zenodo.23920609",
     "source": {
+      "bytes": 116166,
+      "sha256": "dca4210c50c30bdda34fbbea75eb8f4ce57a955439810f7ad04062eaa794437e",
       "url": "/api/v1/collected-papers/peled-teeni-carmi-cohen-2021-correlation-minor-norm-fnf/files/source?version=2"
     },
     "title": "Refuting Peled et al.'s Section IV conjectures after Theorems 1 and 3, Eqs. (10) and (12): sharp fourth-order bounds without filter normal form",
